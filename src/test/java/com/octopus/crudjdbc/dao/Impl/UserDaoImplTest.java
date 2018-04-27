@@ -1,6 +1,8 @@
 //package com.octopus.crudjdbc.dao.Impl;
 //
 //import com.octopus.crudjdbc.CrudJdbcApplication;
+//import com.octopus.crudjdbc.common.PageRequest;
+//import com.octopus.crudjdbc.dao.UserDao;
 //import com.octopus.crudjdbc.entity.User;
 //import org.junit.Assert;
 //import org.junit.Test;
@@ -27,6 +29,11 @@
 //    public void findAll(){
 //        List<User> userList = userDao.findAll();
 //        Assert.assertNotNull(userList.size());
+//    }
+//    @Test
+//    public void getPage(){
+//        Pagination<User> pageResult = userDao.getPage(new PageRequest(1,10));
+//        Assert.assertNotNull(pageResult.getResultList());
 //    }
 //    @Test
 //    public void create(){

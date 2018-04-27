@@ -1,5 +1,6 @@
 package com.octopus.crudjdbc.service;
-
+import com.octopus.crudjdbc.common.Pagination;
+import com.octopus.crudjdbc.common.PageRequest;
 import com.octopus.crudjdbc.entity.Test2;
 import com.octopus.crudjdbc.dao.Test2Dao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author yuchu
  * @email 
- * @date 2018-04-26 14:50:22
+ * @date 2018-04-27 10:53:13
  */
 @Service
 public class Test2Service{
@@ -38,5 +39,9 @@ public class Test2Service{
        return test2Dao.findAll();
     }
 
+    public Pagination<Test2> getPage(Integer pageNum,Integer pageSize){
+        PageRequest pageRequest = new PageRequest(pageNum,pageSize);
+        return test2Dao.getPage(pageRequest);
+    }
 }
 

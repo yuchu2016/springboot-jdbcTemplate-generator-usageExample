@@ -1,5 +1,6 @@
 package com.octopus.crudjdbc.dao;
-
+import com.octopus.crudjdbc.common.Pagination;
+import com.octopus.crudjdbc.common.PageRequest;
 import com.octopus.crudjdbc.entity.Test2;
 import java.util.List;
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * 
  * @author yuchu
  * @email 
- * @date 2018-04-26 14:50:22
+ * @date 2018-04-27 10:53:13
  */
 
 public interface Test2Dao{
@@ -15,6 +16,8 @@ public interface Test2Dao{
     Test2 findOne(Integer id);
 
     List<Test2> findAll();
+
+    Pagination<Test2> getPage(PageRequest pageRequest);
 
     Test2 create(Test2 test2);
 

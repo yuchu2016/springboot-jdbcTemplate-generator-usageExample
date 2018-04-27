@@ -1,5 +1,6 @@
 package com.octopus.crudjdbc.dao;
-
+import com.octopus.crudjdbc.common.Pagination;
+import com.octopus.crudjdbc.common.PageRequest;
 import com.octopus.crudjdbc.entity.Address;
 import java.util.List;
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * 
  * @author yuchu
  * @email 
- * @date 2018-04-26 14:50:22
+ * @date 2018-04-27 10:53:13
  */
 
 public interface AddressDao{
@@ -15,6 +16,8 @@ public interface AddressDao{
     Address findOne(Integer id);
 
     List<Address> findAll();
+
+    Pagination<Address> getPage(PageRequest pageRequest);
 
     Address create(Address address);
 

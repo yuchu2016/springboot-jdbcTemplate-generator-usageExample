@@ -1,5 +1,5 @@
 package com.octopus.crudjdbc.controller;
-
+import com.octopus.crudjdbc.common.Pagination;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import com.octopus.crudjdbc.service.UserService;
  *
  * @author yuchu
  * @email 
- * @date 2018-04-26 14:59:07
+ * @date 2018-04-27 10:53:13
  */
 @RestController
 @RequestMapping("user")
@@ -27,6 +27,12 @@ public class UserController {
     @GetMapping
     public List<User> getAll(){
         return userService.getAll();
+    }
+
+    @ApiOperation(value = "分页获取user")
+    @GetMapping("/page")
+    public Pagination<User> getPage(@RequestParam(name = "pageNum") Integer pageNum,@RequestParam(name = "pageSize")Integer pageSize){
+        return userService.getPage(pageNum, pageSize);
     }
 
     @ApiOperation(value = "更新user")
@@ -45,7 +51,7 @@ public class UserController {
     public User getUser(@PathVariable String id){
         return userService.getById(id);
     }
-    @ApiOperation(value = "根据id删除}user")
+    @ApiOperation(value = "根据id删除user")
     @DeleteMapping
     public void deleteUser(@RequestParam(name = "id") String id){
         userService.deleteUser(id);
